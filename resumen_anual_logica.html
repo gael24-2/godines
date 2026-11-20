@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resumen Anual — Lógica Matemática · 4.º C</title>
+<style>
+:root{
+  --bg:#f3f6fa; --surface:#ffffff; --ink:#14243b; --muted:#506078; --line:#d3dce8;
+  --accent:#0b5fa5; --tint:#e4eefa; --code:#eef2f7;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1724; --surface:#15212f; --ink:#e6edf6; --muted:#9db0c6; --line:#27384d;
+    --accent:#6db3f2; --tint:#1a2c42; --code:#1c2a3b;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+.wrap{max-width:860px;margin:0 auto;padding:2rem 1.25rem 4rem}
+header{border-bottom:3px solid var(--accent);padding-bottom:1.5rem;margin-bottom:2rem}
+.school{margin:0 0 .5rem;font:600 .9rem/1.4 system-ui,sans-serif;color:var(--muted)}
+h1{margin:0 0 .75rem;font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.15}
+header p{margin:.5rem 0 0;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.75rem;margin:1.5rem 0 0;padding:0;list-style:none}
+.stats li{background:var(--tint);border-left:4px solid var(--accent);padding:.7rem .9rem;font:.85rem/1.4 system-ui,sans-serif;color:var(--muted)}
+.stats strong{display:block;font:700 1.5rem/1.2 Georgia,serif;color:var(--ink)}
+h2{margin:3rem 0 1rem;font-size:1.5rem;line-height:1.3;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+article{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.1rem 1.3rem;margin:1rem 0}
+article h3{margin:0 0 .5rem;font-size:1.12rem;line-height:1.35}
+article h3 span{color:var(--accent);font-family:system-ui,sans-serif;margin-right:.4rem}
+article p{margin:.4rem 0}
+article ul{margin:.4rem 0 0;padding-left:1.2rem}
+article li{margin:.35rem 0}
+.date{display:inline-block;font:600 .82rem/1 system-ui,sans-serif;background:var(--tint);color:var(--accent);padding:.35rem .6rem;border-radius:3px;margin:0 0 .5rem}
+.note{font-size:.95rem;color:var(--muted);border-left:3px solid var(--line);padding-left:.8rem}
+code{font:.88em ui-monospace,Menlo,Consolas,monospace;background:var(--code);padding:.1em .35em;border-radius:3px}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font:.92rem/1.45 system-ui,sans-serif;background:var(--surface);min-width:560px}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--tint)}
+td:first-child{white-space:nowrap;font-weight:600}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font:.85rem/1.4 system-ui,sans-serif;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="school">IPETYM N.º 246 “Dr. Amadeo Sabattini” · Tecnicatura en Programación</p>
+  <h1>Resumen Anual — Lógica Matemática</h1>
+  <p>Síntesis completa de los trabajos prácticos realizados en 4.º Año C (Ciclo Lectivo 2026).</p>
+  <ul class="stats">
+    <li><strong>16 TPs</strong>analizados (TP 01 al 17)</li>
+    <li><strong>4 ejes</strong>de datos binarios a matrices</li>
+    <li><strong>Python</strong>Colab, NumPy, PIL y Matplotlib</li>
+    <li><strong>4.º C</strong>nivel secundario técnico</li>
+  </ul>
+  <p>Este documento compila los contenidos, objetivos, herramientas y actividades desarrolladas a lo largo del año en Lógica Matemática. El recorrido avanza desde la representación binaria de la información y la lógica proposicional hasta su implementación práctica mediante programación en Python, estructuras de datos y álgebra matricial aplicada al procesamiento de imágenes.</p>
+</header>
+
+<h2>Eje 1: Sistemas Numéricos y Representación de Datos (TP 01 – TP 04)</h2>
+
+<article>
+  <h3><span>TP 01</span>Sistemas de Numeración y Conversión de Datos</h3>
+  <p>Estudio conceptual y práctico de los sistemas decimal (base 10), binario (base 2), octal (base 8) y hexadecimal (base 16):</p>
+  <ul>
+    <li><b>Fundamentos:</b> uso del sistema hexadecimal para compactar direcciones de memoria, empleo de letras (A–F) para los valores del 10 al 15 y concepto de bit más significativo.</li>
+    <li><b>Métodos de conversión:</b> divisiones sucesivas (decimal a binario, octal y hexadecimal), suma de potencias de base 2 (binario a decimal) y agrupación rápida de bits (de a 3 bits para octal y de a 4 bits para hexadecimal).</li>
+    <li><b>Aplicación:</b> traducción de direcciones de memoria de un microcontrolador (<code>A7</code> y <code>A8</code> en hexadecimal) a binario.</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 02</span>Aritmética Lógica (Suma y Multiplicación Binaria)</h3>
+  <p>Ejecución manual paso a paso de operaciones aritméticas en base 2 con control de errores:</p>
+  <ul>
+    <li><b>Suma binaria:</b> aplicación de reglas de acarreo (1 + 1 = 10<sub>2</sub>, 1 + 1 + 1 = 11<sub>2</sub>, 1 + 1 + 1 + 1 = 100<sub>2</sub>) en sumas de dos, tres y cuatro sumandos.</li>
+    <li><b>Multiplicación binaria:</b> cálculo de productos parciales, desplazamiento de posiciones a la izquierda y suma final con acarreos múltiples.</li>
+    <li><b>Validación de sistemas:</b> verificación cruzada convirtiendo los operandos y resultados al sistema decimal.</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 03</span>Unidades de Medida de la Información</h3>
+  <p>Análisis de las escalas de almacenamiento y contraste entre la convención comercial y la informática:</p>
+  <ul>
+    <li><b>Conceptos base:</b> definición de bit (unidad atómica) y Byte (8 bits); diferencia entre prefijos decimales (10<sup>3</sup> = 1000) y binarios (2<sup>10</sup> = 1024).</li>
+    <li><b>Conversiones y casos reales:</b> pasaje entre bits, Bytes, KB, MB y GB; explicación matemática de por qué los discos duros y pendrives muestran menor capacidad real en el sistema operativo (ej. 16 GB comerciales vs. capacidad real en Windows) y cálculo de tiempos de descarga en Mbps.</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 04</span>Representación de la Información (ASCII y Unicode)</h3>
+  <p>Codificación de caracteres, estándares internacionales y cálculo de consumo de memoria en cadenas de texto:</p>
+  <ul>
+    <li><b>Estándares:</b> limitaciones del ASCII original de 7 bits (2<sup>7</sup> = 128 caracteres) para idiomas distintos al inglés y ventajas de Unicode y UTF-8 (longitud variable de 1 a 4 bytes).</li>
+    <li><b>Decodificación y aritmética de caracteres:</b> traducción de bytes binarios a texto mediante tabla ASCII, distancia numérica entre mayúsculas y minúsculas (97 − 65 = 32) y suma binaria sobre códigos de caracteres.</li>
+  </ul>
+</article>
+
+<h2>Eje 2: Lógica Proposicional, Conjuntos y Leyes de De Morgan (TP 05 – TP 10)</h2>
+
+<article>
+  <h3><span>TP 05</span>Desarrollo Teórico — Lógica Proposicional</h3>
+  <p>Informe digital sobre los fundamentos del razonamiento lógico formal y su vinculación técnica:</p>
+  <ul>
+    <li><b>Proposiciones y conectores:</b> requisitos de una proposición, valor de verdad, variables (p, q, r) y tablas de verdad de disyunción (O), conjunción (Y) y negación (NO).</li>
+    <li><b>Analogías técnicas y matrices:</b> relación con circuitos eléctricos (serie y paralelo), operaciones binarias y teoría de conjuntos (unión, intersección, complemento); clasificación de tablas en tautología, contradicción y contingencia.</li>
+  </ul>
+  <p class="note">Nota de archivo: el TP N.º 06 no se encontraba dentro de la carpeta comprimida recibida, por lo que el detalle continúa directamente con el TP N.º 07.</p>
+</article>
+
+<article>
+  <h3><span>TP 07</span>Técnica de Estudio (Flashcards) — Lógica Proposicional (Parte 2) y Conjuntos</h3>
+  <p>Confección de tarjetas de recuerdo activo (físicas o en Notion/Anki) integrando lógica y representación gráfica:</p>
+  <ul>
+    <li><b>Conectores compuestos:</b> desarrollo de simbología, reglas de verdad y representación en Diagramas de Venn para el condicional (si… entonces, p → q), bicondicional (si y solo si, p ↔ q) y disyunción exclusiva (o… o, diferencia simétrica p ⊕ q).</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 08</span>Ambientación y Repaso — “Hoja de Ruta” (Cheat Sheet)</h3>
+  <p>Elaboración de una síntesis visual de una sola página condensando tablas de verdad, simbología lógica, reglas de conversión y sombreado de Diagramas de Venn como guía rápida de estudio.</p>
+</article>
+
+<article>
+  <h3><span>TP 09</span>Teoría de Conjuntos — Leyes de De Morgan en la Vida Real</h3>
+  <p>Demostración visual y matemática de la Primera y Segunda Ley de De Morgan mediante operaciones de conjuntos (unión, intersección y complemento) aplicada a cuatro ejemplos cotidianos (filtros de búsqueda, reglas de juegos y requisitos).</p>
+</article>
+
+<article>
+  <h3><span>TP 10</span>Leyes de De Morgan en la Vida Real, Series, Juegos y Programación</h3>
+  <span class="date">Entrega: 21 de agosto de 2026</span>
+  <p>Creación de 4 situaciones originales (2 por cada Ley de De Morgan) inspiradas en videojuegos, series, deportes o la escuela, desarrollando el contexto, la condición negada original, la transformación paso a paso y su justificación lógica.</p>
+</article>
+
+<h2>Eje 3: Estructuras de Datos en Python — Vectores y Matrices (TP 11 – TP 15)</h2>
+
+<article>
+  <h3><span>TP 11</span>De la Lógica al Código — Filtrado Dinámico con Vectores</h3>
+  <span class="date">Entrega: 2 de septiembre de 2026</span>
+  <p>Traducción de una regla de De Morgan del TP 10 a un programa funcional en Python (o pseudocódigo con prueba de escritorio):</p>
+  <ul>
+    <li>Manejo de listas (vectores de al menos 10 elementos), recorrido mediante bucles <code>for</code>, evaluación de condiciones lógicas (<code>if</code> con <code>and</code>, <code>or</code>, <code>not</code>) y carga dinámica en un nuevo vector con <code>.append()</code>.</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 12</span>Matrices y Espacio 2D — Digitalizando el Escudo Escolar</h3>
+  <span class="date">Entrega: 30 de septiembre de 2026</span>
+  <p>Paso de estructuras unidimensionales (vectores) a bidimensionales (matrices) en Google Colab:</p>
+  <ul>
+    <li>Lectura binaria del archivo <code>escudo.bmp</code> en una matriz de 25 × 25 píxeles (625 posiciones en escala de grises de 0 a 255) y recorrido por coordenadas mediante ciclos <code>for</code> anidados (<code>matriz[fila][columna]</code>).</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 13</span>Pixel Art y Matrices Bidimensionales — Del Dibujo a la Transformación Numérica</h3>
+  <p>Diseño de 10 producciones propias de pixel art (5 a color y 5 en escala de grises) respetando estrictamente cuadrículas de 16 × 16 (256 píxeles) y 25 × 25 (625 píxeles) sobre cinco temáticas: dos personajes, un vehículo, un símbolo del IPETyM N.º 246 y un emblema de 4.º año.</p>
+</article>
+
+<article>
+  <h3><span>TP 14</span>De la Matriz al Código — Carga y Verificación de Pixel Art en Python</h3>
+  <span class="date">Entrega: 16 de octubre de 2026</span>
+  <p>Procesamiento en Google Colab de al menos 5 diseños del TP 13 utilizando las librerías <code>PIL</code>, <code>numpy</code> y <code>matplotlib</code>:</p>
+  <ul>
+    <li>Comparación entre matrices RGB de 3 dimensiones (N, N, 3), escala de grises (N, N) con valores de 0 a 255 y conversión binaria blanco/negro mediante umbralización y renderizado ASCII en consola.</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 15</span>Creación de Cuenta en GitHub</h3>
+  <p>Registro y verificación de un perfil personal en la plataforma de control de versiones GitHub para alojar, versionar y compartir aplicaciones web interactivas y proyectos de programación.</p>
+</article>
+
+<h2>Eje 4: Producto Cartesiano, Funciones y Álgebra Matricial (TP 16 – TP 17)</h2>
+
+<article>
+  <h3><span>TP 16</span>El Puente Lógico — De los Conjuntos al Producto Cartesiano y las Funciones</h3>
+  <span class="date">Entrega: 28 de octubre de 2026</span>
+  <p>Conexión entre teoría de conjuntos, coordenadas espaciales y lógica de programación:</p>
+  <ul>
+    <li><b>Producto cartesiano:</b> generación de pares ordenados A × B, demostración de cardinalidad (|A × B| = |A| × |B|), tablas de doble entrada e implementación en Python con comprensión de listas.</li>
+    <li><b>Relaciones y funciones:</b> distinción entre relación general y función (unicidad de salida), identificación de variables dependiente e independiente y aplicación al cálculo de movimiento o puntaje en videojuegos.</li>
+  </ul>
+</article>
+
+<article>
+  <h3><span>TP 17</span>“Mi Pixel Art en el Laboratorio de Matrices”</h3>
+  <span class="date">Entrega: 11 de noviembre de 2026</span>
+  <p>Proyecto integrador de álgebra matricial aplicada a imágenes mediante una aplicación web interactiva:</p>
+  <ul>
+    <li><b>Clasificación de matrices:</b> análisis de 5 diseños propios del mismo tamaño (16×16, 25×25 o 32×32) evaluando propiedades (cuadrada, nula, identidad, diagonal, triangular y simétrica).</li>
+    <li><b>Operaciones matriciales:</b> ejecución y visualización del efecto gráfico de suma/resta (A + B, A − B), multiplicación de matrices (A × B) y producto por escalar (A × k).</li>
+    <li><b>Desafíos geométricos:</b> diseño y validación de una matriz diagonal (píxeles activos solo donde fila = columna) y una matriz triangular superior (ceros por debajo de la diagonal principal).</li>
+  </ul>
+</article>
+
+<h2>Cuadro Sinóptico de Progresión Anual</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th>TP</th><th>Tema principal</th><th>Conceptos y herramientas clave</th></tr></thead>
+  <tbody>
+    <tr><td>TP 01</td><td>Sistemas de Numeración</td><td>Binario, octal, decimal, hexadecimal; divisiones y agrupación de bits.</td></tr>
+    <tr><td>TP 02</td><td>Aritmética Lógica</td><td>Suma y multiplicación binaria manual con acarreos; validación decimal.</td></tr>
+    <tr><td>TP 03</td><td>Unidades de Información</td><td>Bit, Byte, prefijos 10<sup>3</sup> vs. 2<sup>10</sup> (1024), capacidad real de discos.</td></tr>
+    <tr><td>TP 04</td><td>Representación de Datos</td><td>Codificación ASCII (7 bits), Unicode y UTF-8; aritmética de caracteres.</td></tr>
+    <tr><td>TP 05</td><td>Lógica Proposicional I</td><td>Proposiciones, conectores (O, Y, NO), circuitos, tautología/contradicción.</td></tr>
+    <tr><td>TP 07</td><td>Lógica Proposicional II</td><td>Flashcards de condicional, bicondicional, XOR y Diagramas de Venn.</td></tr>
+    <tr><td>TP 08</td><td>Repaso Integrador</td><td>Hoja de ruta visual (Cheat Sheet) de la primera etapa.</td></tr>
+    <tr><td>TP 09</td><td>Leyes de De Morgan I</td><td>Demostración con conjuntos (unión, intersección, complemento) y casos reales.</td></tr>
+    <tr><td>TP 10</td><td>Leyes de De Morgan II</td><td>Transformación paso a paso de condiciones negadas en situaciones cotidianas.</td></tr>
+    <tr><td>TP 11</td><td>Vectores en Python</td><td>Listas 1D, bucles <code>for</code>, filtros <code>if</code> (and/or/not) y <code>.append()</code>.</td></tr>
+    <tr><td>TP 12</td><td>Matrices 2D (Escudo)</td><td>Lectura de .bmp (25×25), bucles <code>for</code> anidados en Google Colab.</td></tr>
+    <tr><td>TP 13</td><td>Diseño de Pixel Art</td><td>10 matrices de 16×16 y 25×25 (color y escala de grises).</td></tr>
+    <tr><td>TP 14</td><td>Pixel Art en Python</td><td>Librerías <code>PIL</code>, <code>numpy</code>, <code>matplotlib</code>; matrices RGB vs. grises.</td></tr>
+    <tr><td>TP 15</td><td>Control de Versiones</td><td>Creación y configuración de cuenta profesional en GitHub.</td></tr>
+    <tr><td>TP 16</td><td>Producto Cartesiano y Funciones</td><td>Pares ordenados A × B, cardinalidad, relaciones vs. funciones en Python.</td></tr>
+    <tr><td>TP 17</td><td>Laboratorio de Matrices</td><td>Suma, resta, multiplicación matricial, escalar, matriz diagonal y triangular.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<footer>Lógica Matemática · 4.º Año C · IPETyM N.º 246</footer>
+</div>
+</body>
+</html>
